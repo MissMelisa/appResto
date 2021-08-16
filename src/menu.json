@@ -1,0 +1,318 @@
+[
+  {
+    "name": "Burgers",
+    "items": [
+      {
+        "id": 1,
+        "name": "Cheeseburger",
+        "image": "Images/burgerdoble.jpg",
+        "descripcion": "Carne 125gr y queso cheddar",
+        "excludedItems": [],
+        "sizes": { "simple": 460, "Doble": 540, "Triples": 620 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 2,
+        "name": "Classic",
+        "image": "Images/classic.jpeg",
+        "description": "carne 125gr, cheddar,tomate, lechuga y cebolla",
+        "excludedItems": ["cheddar", "tomate", "lechuga", "cebolla"],
+        "sizes": { "simple": 480, "Doble": 560 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sweetmeat",
+        "image": "Images/sweetmeat.jpg",
+        "description": "cane 125gr, cebolla caramelizada y cheddar",
+        "excludedItems": ["cebolla caramelizada", "cheddar"],
+        "sizes": { "simple": 470, "doble": 550, "triples": 630 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 4,
+        "name": "Veggie",
+        "image": "Images/veggie.jpg",
+        "description": "medallon de lenteja, tomate y lechuga",
+        "excludedItems": ["tomate", "lechuga"],
+        "sizes": { "simple": 430, "doble": 510 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 5,
+        "name": "Grilled onion",
+        "image": "Images/onion.jpg",
+        "description": " carne 125gr, cheddar, bacon y cebolla grillada",
+        "excludedItems": ["cheddar", "bacon", "cebolla grillada"],
+        "sizes": { "simple": 500, "doble": 580, "triples": 660 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 6,
+        "name": "Bully burger",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/0e/40/91/8b/hamburguesa-con-queso.jpg",
+        "description": "Carne 125gr, cheddar, huevo, cebolla caramelizada y bacon barbacoa",
+        "excludedItems": [
+          "cheddar",
+          "huevo",
+          "cebolla caramelizada",
+          "bacon barbacoa"
+        ],
+        "sizes": { "simple": 560, "doble": 650, "triples": 730 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      }
+    ]
+  },
+
+  {
+    "name": "Combos",
+    "items": [
+      {
+        "id": 7,
+        "name": "Combo 1",
+        "image": "Images/burgerdoble.jpg",
+        "description": "Dos Cheese burger doble con guarnicion ",
+        "excludedItems": [],
+        "sizes": { "Doble": 1040 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 8,
+        "name": "Combo 2",
+        "image": "Images/cheeseburger.jpeg",
+        "description": "Dos burgers classic  con guarnicion",
+        "excludedItems": [],
+        "sizes": { "simple": 920 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 9,
+        "name": "Combo 3",
+        "image": "Images/burgerdoble.jpg",
+        "description": "Cuatro cheese burger simple con guarnicion",
+        "excludedItems": [],
+        "sizes": { "simple": 1760 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 10,
+        "name": "Combo 4",
+        "image": "Images/sweetmeat.jpg",
+        "description": "Dos sweetmeat con guarnicion",
+        "excludedItems": [],
+        "sizes": { "simple": 900 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      }
+    ]
+  },
+  {
+    "name": "Combos con bebida",
+    "items": [
+      {
+        "id": 11,
+        "name": "Combo infantil",
+        "description": "Cheese simple con guarnicion",
+        "image": "Images/burgerdoble.jpg",
+        "excludedItems": ["Pepsi", "Seven Up"],
+        "sizes": { "simple": 520 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 12,
+        "name": "Combo cervezero",
+        "image": "Images/cheeseburger.jpeg",
+        "description": "Cheese doble, cerveza Brahama y guarnicion",
+        "excludedItems": [],
+        "sizes": { "simple": 680 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      },
+      {
+        "id": 13,
+        "name": "Combo gaseosa",
+        "image": "Images/burgerdoble.jpg",
+        "description": "Cheese doble con guarnicion",
+        "excludedItems": ["Pepsi", "Seven Up"],
+        "sizes": { "simple": 620 },
+        "options": {
+          "Pan": ["Pan de papa", "Pan de queso"],
+          "Guarnicion": ["Papa fritas", "Batatas fritas"]
+        }
+      }
+    ]
+  },
+
+  {
+    "name": "Para acompañar",
+    "items": [
+      {
+        "id": 14,
+        "name": "Dips",
+        "image": "https://www.riotchicken.com/wp-content/uploads/2019/03/bbq-dip-e1563224376953.jpg",
+        "excludedItems": [],
+        "sizes": {
+          " Mayonesa": 50,
+          " Cebolla carmelizada": 50,
+          " BBQ": 50,
+          " Cheddar": 60
+        },
+        "options": {}
+      }
+    ]
+  },
+
+  {
+    "name": "Porciones",
+    "items": [
+      {
+        "id": 15,
+        "name": "Papas fritas",
+        "image": "Images/papas.jpg",
+        "excludedItems": ["papas", "sal"],
+        "sizes": { "L": 170, "XL": 200 },
+        "options": {}
+      },
+      {
+        "id": 16,
+        "name": "Batatas fritas",
+        "image": "https://static.paraloscuriosos.com/img/articles/4957/800x800/5774ea13e10d9_miniaturka.jpg",
+        "excludedItems": ["batatas", "sal"],
+        "sizes": { "L": 220, "XL": 250 },
+        "options": {}
+      }
+    ]
+  },
+  {
+    "name": "Extras",
+    "items": [
+      {
+        "id": 17,
+        "name": "Sumale a tu burger",
+        "image": "Images/burgerdoble.jpg",
+        "excludedItems": [],
+        "sizes": {
+          "Extra Carne": 100,
+          "Extra medallon de lenteja": 70,
+          "Extra cheddar": 60,
+          "Extra Bacon": 60
+        },
+        "options": {}
+      }
+    ]
+  },
+  {
+    "name": "Bebidas",
+    "items": [
+      {
+        "id": 18,
+        "name": "Gaseosas en lata",
+        "image": "https://s.yimg.com/ny/api/res/1.2/cnQF8W9cEwdlPILoWf_Qdw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MC4zMg--/https://s.yimg.com/uu/api/res/1.2/DMZGGNNL6liGq8wpEQ0oGg--~B/aD02Njc7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/ccb2ab3e5f933640cc0162c78a898a84",
+        "excludedItems": [],
+        "sizes": { "Pepsi": 80, "SevenUp": 80, "CocaCola": 100 },
+        "options": {}
+      },
+      {
+        "id": 19,
+        "name": "Gaseosa 500cc",
+        "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/273/434/products/77918134201181-02c1892ab7b2181d5e15952575329430-1024-1024.jpg",
+        "excludedItems": [],
+        "sizes": { "Pepsi": 100, "Coca-Cola": 130 },
+        "options": {}
+      },
+      {
+        "id": 20,
+        "name": "Cervezas de 473ml",
+        "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/192228-1000-1000/Cerveza-Andes-Rubia-en-lata-473-Ml-_1.jpg?v=637509637124830000",
+        "excludedItems": [],
+        "sizes": { "Brahama": 150, "AndesRubia": 170 },
+        "options": {}
+      }
+    ]
+  },
+
+  {
+    "name": "Promo Bebidas",
+    "items": [
+      {
+        "id": 21,
+        "name": " 7up 354cc x2",
+        "excludedItems": [],
+        "image": "https://superlago.com.ar/wp-content/uploads/2021/04/7791813777021.jpg",
+        "sizes": { "7up ": 140 },
+        "options": {}
+      },
+      {
+        "id": 22,
+        "name": " Pepsi 500cc x2",
+        "excludedItems": [],
+        "image": "https://depotexpress.com.ar/tienda/wp-content/uploads/2020/06/Gaseosa-Pepsi-Lata-X-354.jpg",
+        "sizes": { "Pepsi ": 220 },
+        "options": {}
+      },
+      {
+        "id": 23,
+        "name": " CocaCola 500cc x2",
+        "excludedItems": [],
+        "image": "https://www.casa-segal.com/wp-content/uploads/2020/03/coca-cola-500cc-almacen-gaseosas-casa-segal-mendoza.jpg",
+        "sizes": { "CocaCola ": 250 },
+        "options": {}
+      },
+      {
+        "id": 24,
+        "name": " Cerveza Brahama 473cc x3",
+        "excludedItems": [],
+        "image": "http://cdn.shopify.com/s/files/1/0254/2947/5433/products/cerveza-brahma-chopp-354-siempreencasa_1000x.png?v=1623696189",
+        "sizes": { "Brahama ": 410 },
+        "options": {}
+      }
+    ]
+  },
+  {
+    "name": "Postres",
+    "items": [
+      {
+        "id": 25,
+        "name": " Postres",
+        "excludedItems": [],
+        "image": "http://www.cookiesundays.org/wp-content/uploads/2015/09/chocotorta.jpeg",
+        "sizes": { "Chocotorta ": 260, "Bomba Oreo ": 250 },
+        "options": {}
+      }
+    ]
+  }
+]
