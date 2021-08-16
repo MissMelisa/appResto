@@ -6,9 +6,9 @@
         "id": 1,
         "name": "Cheeseburger",
         "image": "Images/burgerdoble.jpg",
-        "descripcion": "Carne 125gr y queso cheddar",
+        "description": "Carne 125gr y queso cheddar",
         "excludedItems": [],
-        "sizes": { "simple": 460, "Doble": 540, "Triples": 620 },
+        "sizes": { "simple": 460, "doble": 540 },
         "options": {
           "Pan": ["Pan de papa", "Pan de queso"],
           "Guarnicion": ["Papa fritas", "Batatas fritas"]
@@ -20,7 +20,7 @@
         "image": "Images/classic.jpeg",
         "description": "carne 125gr, cheddar,tomate, lechuga y cebolla",
         "excludedItems": ["cheddar", "tomate", "lechuga", "cebolla"],
-        "sizes": { "simple": 480, "Doble": 560 },
+        "sizes": { "simple": 480, "doble": 560 },
         "options": {
           "Pan": ["Pan de papa", "Pan de queso"],
           "Guarnicion": ["Papa fritas", "Batatas fritas"]
@@ -91,7 +91,7 @@
         "image": "Images/burgerdoble.jpg",
         "description": "Dos Cheese burger doble con guarnicion ",
         "excludedItems": [],
-        "sizes": { "Doble": 1040 },
+        "sizes": { "doble": 1040 },
         "options": {
           "Pan": ["Pan de papa", "Pan de queso"],
           "Guarnicion": ["Papa fritas", "Batatas fritas"]
@@ -183,6 +183,7 @@
       {
         "id": 14,
         "name": "Dips",
+        "description": "",
         "image": "https://www.riotchicken.com/wp-content/uploads/2019/03/bbq-dip-e1563224376953.jpg",
         "excludedItems": [],
         "sizes": {
@@ -202,6 +203,7 @@
       {
         "id": 15,
         "name": "Papas fritas",
+        "description": "",
         "image": "Images/papas.jpg",
         "excludedItems": ["papas", "sal"],
         "sizes": { "L": 170, "XL": 200 },
@@ -223,6 +225,7 @@
       {
         "id": 17,
         "name": "Sumale a tu burger",
+        "description": "",
         "image": "Images/burgerdoble.jpg",
         "excludedItems": [],
         "sizes": {
@@ -241,6 +244,7 @@
       {
         "id": 18,
         "name": "Gaseosas en lata",
+        "description": "",
         "image": "https://s.yimg.com/ny/api/res/1.2/cnQF8W9cEwdlPILoWf_Qdw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MC4zMg--/https://s.yimg.com/uu/api/res/1.2/DMZGGNNL6liGq8wpEQ0oGg--~B/aD02Njc7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/ccb2ab3e5f933640cc0162c78a898a84",
         "excludedItems": [],
         "sizes": { "Pepsi": 80, "SevenUp": 80, "CocaCola": 100 },
@@ -249,6 +253,7 @@
       {
         "id": 19,
         "name": "Gaseosa 500cc",
+        "description": "",
         "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/273/434/products/77918134201181-02c1892ab7b2181d5e15952575329430-1024-1024.jpg",
         "excludedItems": [],
         "sizes": { "Pepsi": 100, "Coca-Cola": 130 },
@@ -257,6 +262,7 @@
       {
         "id": 20,
         "name": "Cervezas de 473ml",
+        "description": "",
         "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/192228-1000-1000/Cerveza-Andes-Rubia-en-lata-473-Ml-_1.jpg?v=637509637124830000",
         "excludedItems": [],
         "sizes": { "Brahama": 150, "AndesRubia": 170 },
@@ -271,6 +277,7 @@
       {
         "id": 21,
         "name": " 7up 354cc x2",
+        "description": "",
         "excludedItems": [],
         "image": "https://superlago.com.ar/wp-content/uploads/2021/04/7791813777021.jpg",
         "sizes": { "7up ": 140 },
@@ -279,6 +286,7 @@
       {
         "id": 22,
         "name": " Pepsi 500cc x2",
+        "description": "",
         "excludedItems": [],
         "image": "https://depotexpress.com.ar/tienda/wp-content/uploads/2020/06/Gaseosa-Pepsi-Lata-X-354.jpg",
         "sizes": { "Pepsi ": 220 },
@@ -287,6 +295,7 @@
       {
         "id": 23,
         "name": " CocaCola 500cc x2",
+        "description": "",
         "excludedItems": [],
         "image": "https://www.casa-segal.com/wp-content/uploads/2020/03/coca-cola-500cc-almacen-gaseosas-casa-segal-mendoza.jpg",
         "sizes": { "CocaCola ": 250 },
@@ -295,6 +304,7 @@
       {
         "id": 24,
         "name": " Cerveza Brahama 473cc x3",
+        "description": "",
         "excludedItems": [],
         "image": "http://cdn.shopify.com/s/files/1/0254/2947/5433/products/cerveza-brahma-chopp-354-siempreencasa_1000x.png?v=1623696189",
         "sizes": { "Brahama ": 410 },
@@ -308,6 +318,7 @@
       {
         "id": 25,
         "name": " Postres",
+        "description": "",
         "excludedItems": [],
         "image": "http://www.cookiesundays.org/wp-content/uploads/2015/09/chocotorta.jpeg",
         "sizes": { "Chocotorta ": 260, "Bomba Oreo ": 250 },

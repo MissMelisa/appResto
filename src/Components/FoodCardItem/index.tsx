@@ -4,8 +4,8 @@ import { Box, Image, Text, VStack } from "@chakra-ui/react";
 type TypeFoodCardItem = {
   image: string;
   itemName: string;
-  description: string;
-  sizes: string[];
+  description?: string;
+  sizes: Record<string, number>;
   onClick: () => void;
 };
 

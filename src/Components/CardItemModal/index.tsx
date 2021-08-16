@@ -2,6 +2,9 @@ import {
   Button,
   ButtonGroup,
   Checkbox,
+  Flex,
+  FormControl,
+  FormLabel,
   Image,
   Modal,
   ModalBody,
@@ -9,26 +12,31 @@ import {
   ModalContent,
   ModalHeader,
   ModalOverlay,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
   Text,
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { Cart, Size } from "../../types";
+import FoodItemOptions from "../FoodItemOptions";
 
 type TypeCardItemModal = {
-  image: string;
+  image?: string;
   sizes: Record<string, number>; // { [k: string]: number }
-  description: string;
+  description?: string;
   nameItem: string;
-  onClickAddItem: () => void;
+  onClickAddItem: (orderItem: Cart) => void;
   options: Record<string, string[]>;
   excludedItems: string[];
+  open: boolean;
+  setOpen: (open: boolean) => void;
 };
-
-type Size = {
-  size: string;
-  price: number;
-};
+type SelectedOptionType = Record<string, string>;
 
 export default function CardItemModal({
   image,
@@ -38,6 +46,8 @@ export default function CardItemModal({
   onClickAddItem,
   options,
   excludedItems,
+  open,
+  setOpen,
 }: TypeCardItemModal) {
   const { isOpen, onClose } = useDisclosure();
 
@@ -48,8 +58,14 @@ export default function CardItemModal({
   const [error, setError] = useState<boolean>(false);
   const [excludedIngredients, setExcludedIngredients] = useState<string[]>([]);
   const [selectedSize, setSelectedSize] = useState<Size>(objectSizes[0]);
+  const [quantity, setQuantity] = useState<number>(1);
+  const [selectedOptions, setSelectedOptions] = useState<SelectedOptionType>(
+    {}
+  );
 
-  // [string, number]
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
@@ -68,36 +84,89 @@ export default function CardItemModal({
 
     setSelectedSize(selected);
   }
+  function handleOnClickAdd() {
+    const orderItem = {
+      nameItem,
+      selectedSize,
+      excludedItems: excludedIngredients,
+      image,
+      quantity,
+      selectedOptions,
+    };
 
+    if (!selectedSize.size) {
+      setError(true);
+      return;
+    }
+
+    onClickAddItem(orderItem);
+
+    setExcludedIngredients([]);
+    setSelectedSize(objectSizes[0]);
+    setSelectedOptions({});
+  }
+  function handleOnOptions(title: string, option: string) {
+    setError(false);
+    setSelectedOptions((prevState) => ({ ...prevState, [title]: option }));
+  }
   return (
-    <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+    <Modal
+      closeOnOverlayClick={false}
+      isOpen={open}
+      onClose={handleClose}
+      size="full"
+    >
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>{nameItem}</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody display="flex" flexDirection="column" alignItems="center">
           <Image src={image} />
-          <Text>{description}</Text>
+          <Text as="samp" fontSize="lg">
+            {description}
+          </Text>
           <VStack>
-            {excludedItems.length >= 1 && <Text>Excluir</Text>}
+            {excludedItems.length >= 1 && (
+              <Text as="samp" fontSize="lg" fontWeight="bolder">
+                Excluir
+              </Text>
+            )}
+
             {excludedItems.map((excludedItem) => (
-              <Checkbox
-                key={excludedItem}
-                name={excludedItem}
-                label={excludedItem}
-                checked={excludedIngredients.includes(excludedItem)}
-                onChange={handleChange}
-              />
+              <FormControl id={excludedItem}>
+                <Checkbox
+                  key={excludedItem}
+                  name={excludedItem}
+                  value={excludedItem}
+                  checked={excludedIngredients.includes(excludedItem)}
+                  onChange={handleChange}
+                  colorScheme="teal"
+                />
+
+                {excludedItem}
+              </FormControl>
             ))}
           </VStack>
           <VStack>
+            <Text as="samp" fontSize="lg" marginTop="10" fontWeight="bolder">
+              Tamaño
+            </Text>
             {objectSizes.length > 1 && (
-              <ButtonGroup>
+              <ButtonGroup
+                colorScheme="teal"
+                variant="solid"
+                display="flex"
+                marginBottom="5px"
+                flexDirection="column"
+              >
                 {objectSizes.map((size) => {
                   const { size: key, price } = size;
                   return (
                     <Button
                       key={key}
+                      colorScheme="teal"
+                      variant={key === selectedSize.size ? "solid" : "outline"}
+                      margin="10px"
                       onClick={() => handleOnClickSelected(size)}
                     >
                       {key} $ {price}
@@ -108,6 +177,48 @@ export default function CardItemModal({
             )}
             {error === true && <Text>Seleccione el tamaño</Text>}
           </VStack>
+          <Flex>
+            {Object.entries(options).map((option) => {
+              const [title, values] = option;
+
+              return (
+                <FoodItemOptions
+                  key={title}
+                  error={error}
+                  selectedOption={selectedOptions[title]}
+                  title={title}
+                  options={values}
+                  onClick={handleOnOptions}
+                />
+              );
+            })}
+          </Flex>
+          <Flex margin="20px" flexDirection="column">
+            <Text as="samp" fontSize="lg">
+              Cantidad
+            </Text>
+            <NumberInput defaultValue={1} min={0} max={20}>
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
+          </Flex>
+
+          <Button
+            onClick={handleOnClickAdd}
+            colorScheme="teal"
+            variant="solid"
+            margin="10px"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            marginBottom="5px"
+            flexDirection="column"
+          >
+            Agregar $ {selectedSize.price}
+          </Button>
         </ModalBody>
       </ModalContent>
     </Modal>
