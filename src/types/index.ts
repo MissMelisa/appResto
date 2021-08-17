@@ -7,7 +7,7 @@ export type SelectedSize = {
   size: string;
   price: number;
 };
-export type Cart = {
+export type CartType = {
   excludedItems: string[];
   id?: number;
   image?: string;

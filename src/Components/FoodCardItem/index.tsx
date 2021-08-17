@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text, VStack } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 
 type TypeFoodCardItem = {
   image: string;
@@ -18,13 +18,21 @@ export default function FoodCardItem({
 }: TypeFoodCardItem) {
   const defaultSize = Object.values(sizes)[0];
   return (
-    <VStack onClick={onClick}>
-      <Box>
-        <Image src={image} />
-        <Text>{itemName}</Text>
-        <Text>${defaultSize}</Text>
-        <Text>{description}</Text>
-      </Box>
-    </VStack>
+    <Flex
+      onClick={onClick}
+      flexDirection="column"
+      width="100%"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Image src={image} boxSize="250px" objectFit="fill" />
+      <Text>{itemName}</Text>
+      <Text as="em" fontWeight="bold" fontSize="lg">
+        ${defaultSize}
+      </Text>
+      <Text fontSize="sm" as="i">
+        {description}
+      </Text>
+    </Flex>
   );
 }

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { AtSignIcon, PhoneIcon, TimeIcon } from "@chakra-ui/icons";
 import {
   Badge,
-  Box,
   Button,
   Flex,
+  Grid,
   Image,
   Text,
   VStack,
@@ -14,7 +14,9 @@ import { useCart } from "../../components/Context";
 import FoodCardItem from "../../components/FoodCardItem";
 import CardItemModal from "../../components/CardItemModal";
 import categories from "../../menu.json";
-import { Cart, FoodData } from "../../types";
+import { CartType, FoodData } from "../../types";
+import Cart from "../../components/Cart";
+
 type openType = Record<string, boolean>;
 const initialStateOpen = {
   openCart: false,
@@ -38,7 +40,7 @@ export default function Home() {
   function handleOnClickFilter(value?: string) {
     setFilter(value);
   }
-  function handleOnClickCart(orderItem: Cart) {
+  function handleOnClickCart(orderItem: CartType) {
     addNewItem(orderItem);
     handleSetOpen("openCart");
   }
@@ -48,10 +50,10 @@ export default function Home() {
   }
   console.log(categories);
   return (
-    <VStack>
+    <VStack width="100%" display="flex" justifyContent="center">
       <Button onClick={() => handleSetOpen("openCart")}>Mi orden</Button>
 
-      <Image src="Images/logo.jpg" />
+      <Image src="Images/logo.jpg" boxSize="300px" objectFit="fill" />
       <Text s="samp" fontSize="xl" fontWeight="bolder">
         Stoke House Burgers
       </Text>
@@ -77,9 +79,10 @@ export default function Home() {
           </Text>
         </Flex>
       </Flex>
-      <Flex overflow="scroll">
+      <Flex overflow="scroll" justifyContent="center" width="100%">
         <Button
           colorScheme="teal"
+          margin="8px"
           variant={filter ? "solid" : "outline"}
           onClick={() => handleOnClickFilter()}
         >
@@ -89,6 +92,7 @@ export default function Home() {
           <Button
             key={category.name}
             colorScheme="teal"
+            margin="8px"
             variant={filter === category.name ? "solid" : "outlined"}
             onClick={() => handleOnClickFilter(category.name)}
           >
@@ -102,13 +106,21 @@ export default function Home() {
         badgeContent={totalCartItem}
         anchorOrigin={{ horizontal: "left", vertical: "top" }}
       ></Badge>
-      <Flex flexDirection="column">
+      <Grid flexDirection="column" width="100%">
         {categories
           .filter((category) => !filter || (filter && category.name === filter))
           .map((category) => (
-            <Flex key={category.name}>
-              <Text>{category.name}</Text>
-              <Text>
+            <Grid key={category.name} width="100%">
+              <Text as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+                {category.name}
+              </Text>
+
+              <Grid
+                width="100%"
+                gridTemplateColumns="repeat(auto-fill,minmax(300px, 1fr))"
+                alignItems="center"
+                justifyContent="center"
+              >
                 {category.items.map((item) => (
                   <FoodCardItem
                     key={item.id}
@@ -119,10 +131,10 @@ export default function Home() {
                     sizes={item.sizes as Record<string, number>}
                   />
                 ))}
-              </Text>
-            </Flex>
+              </Grid>
+            </Grid>
           ))}
-      </Flex>
+      </Grid>
       <Flex>
         {detail && (
           <CardItemModal
@@ -139,6 +151,13 @@ export default function Home() {
           />
         )}
       </Flex>
+      {Cart && (
+        <Cart
+          open={open.openCart}
+          setOpen={() => handleSetOpen("openCart")}
+          handleOnDelete={deleteItem}
+        />
+      )}
     </VStack>
   );
 }

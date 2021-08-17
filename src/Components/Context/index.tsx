@@ -2,12 +2,12 @@ import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import { Cart, SelectedSize } from "../../types";
+import { CartType } from "../../types";
 
 type CartContextType = {
-  cart: Cart[];
+  cart: CartType[];
   totalCartItem: number;
-  addNewItem: (orderItem: Cart) => void;
+  addNewItem: (orderItem: CartType) => void;
   updateItemQuantity: (quantity: number, id: number) => void;
   deleteItem: (id: number) => void;
 };
@@ -34,7 +34,7 @@ export default function CartProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [cart, setCart] = useState<Cart[]>(
+  const [cart, setCart] = useState<CartType[]>(
     JSON.parse(localStorage.getItem("myCart") || "") || []
   );
 
@@ -42,7 +42,7 @@ export default function CartProvider({
     localStorage.setItem("myCart", JSON.stringify(cart));
   }, [cart]);
 
-  function addNewItem(orderItem: Cart) {
+  function addNewItem(orderItem: CartType) {
     setCart((prevState) => {
       orderItem.id = prevState.length + 1;
       return [...prevState, orderItem];

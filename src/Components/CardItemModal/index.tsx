@@ -4,7 +4,6 @@ import {
   Checkbox,
   Flex,
   FormControl,
-  FormLabel,
   Image,
   Modal,
   ModalBody,
@@ -18,11 +17,10 @@ import {
   NumberInputField,
   NumberInputStepper,
   Text,
-  useDisclosure,
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Cart, Size } from "../../types";
+import { CartType, Size } from "../../types";
 import FoodItemOptions from "../FoodItemOptions";
 
 type TypeCardItemModal = {
@@ -30,7 +28,7 @@ type TypeCardItemModal = {
   sizes: Record<string, number>; // { [k: string]: number }
   description?: string;
   nameItem: string;
-  onClickAddItem: (orderItem: Cart) => void;
+  onClickAddItem: (orderItem: CartType) => void;
   options: Record<string, string[]>;
   excludedItems: string[];
   open: boolean;
@@ -49,8 +47,6 @@ export default function CardItemModal({
   open,
   setOpen,
 }: TypeCardItemModal) {
-  const { isOpen, onClose } = useDisclosure();
-
   const objectSizes: Size[] = Object.entries(sizes).map(([key, value]) => ({
     size: key,
     price: value,
@@ -104,6 +100,7 @@ export default function CardItemModal({
     setExcludedIngredients([]);
     setSelectedSize(objectSizes[0]);
     setSelectedOptions({});
+    setOpen(false);
   }
   function handleOnOptions(title: string, option: string) {
     setError(false);
@@ -114,14 +111,14 @@ export default function CardItemModal({
       closeOnOverlayClick={false}
       isOpen={open}
       onClose={handleClose}
-      size="full"
+      size="lg"
     >
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>{nameItem}</ModalHeader>
+        <ModalHeader fontSize="3xl">{nameItem}</ModalHeader>
         <ModalCloseButton />
         <ModalBody display="flex" flexDirection="column" alignItems="center">
-          <Image src={image} />
+          <Image src={image} boxSize="300px" objectFit="cover" />
           <Text as="samp" fontSize="lg">
             {description}
           </Text>
@@ -156,7 +153,6 @@ export default function CardItemModal({
                 colorScheme="teal"
                 variant="solid"
                 display="flex"
-                marginBottom="5px"
                 flexDirection="column"
               >
                 {objectSizes.map((size) => {
@@ -177,7 +173,7 @@ export default function CardItemModal({
             )}
             {error === true && <Text>Seleccione el tamaño</Text>}
           </VStack>
-          <Flex>
+          <Flex flexDirection="column">
             {Object.entries(options).map((option) => {
               const [title, values] = option;
 
