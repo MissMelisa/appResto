@@ -6,6 +6,7 @@ import {
   Button,
   Flex,
   Grid,
+  IconButton,
   Image,
   Text,
   VStack,
@@ -52,14 +53,18 @@ export default function Home() {
 
   return (
     <VStack width="100%" display="grid" placeItems="center" position="relative">
-      <Button
+      <IconButton
         onClick={() => handleSetOpen("openCart")}
         colorScheme="teal"
-        size="sm"
-        alignSelf="flex-end"
+        size="md"
+        position="absolute"
+        top="24px"
+        right="30px"
+        aria-label="cart"
+        isRound={true}
       >
-        Mi orden
-      </Button>
+        <img src="/Images/shopping_cart.svg" alt="cart" />
+      </IconButton>
 
       <Image src="Images/logo.jpg" boxSize="300px" objectFit="fill" />
       <Text s="samp" fontSize="xl" fontWeight="bolder">
@@ -116,10 +121,21 @@ export default function Home() {
       </Box>
 
       <Badge
+        position="fixed"
+        right="24px"
+        borderRadius="50%"
         colorScheme="red"
-        badgeContent={totalCartItem}
-        anchorOrigin={{ horizontal: "left", vertical: "top" }}
-      />
+        bottom="24px"
+        width="45px"
+        height="45px"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        onClick={() => handleSetOpen("openCart")}
+      >
+        <img src="/Images/shopping_cart.svg" alt="cart" />
+        {totalCartItem}
+      </Badge>
       <Grid flexDirection="column" width="100%">
         {categories
           .filter((category) => !filter || (filter && category.name === filter))
