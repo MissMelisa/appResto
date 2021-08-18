@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AtSignIcon, PhoneIcon, TimeIcon } from "@chakra-ui/icons";
 import {
   Badge,
+  Box,
   Button,
   Flex,
   Grid,
@@ -50,8 +51,15 @@ export default function Home() {
   }
 
   return (
-    <VStack width="100%" display="flex" justifyContent="center">
-      <Button onClick={() => handleSetOpen("openCart")}>Mi orden</Button>
+    <VStack width="100%" display="grid" placeItems="center" position="relative">
+      <Button
+        onClick={() => handleSetOpen("openCart")}
+        colorScheme="teal"
+        size="sm"
+        alignSelf="flex-end"
+      >
+        Mi orden
+      </Button>
 
       <Image src="Images/logo.jpg" boxSize="300px" objectFit="fill" />
       <Text s="samp" fontSize="xl" fontWeight="bolder">
@@ -79,7 +87,13 @@ export default function Home() {
           </Text>
         </Flex>
       </Flex>
-      <Flex overflow="scroll" justifyContent="center" width="100%">
+      <Box
+        display="grid"
+        gridTemplateColumns="repeat(auto-fit,minmax(250px, 1fr))"
+        width="100%"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Button
           colorScheme="teal"
           margin="8px"
@@ -93,19 +107,19 @@ export default function Home() {
             key={category.name}
             colorScheme="teal"
             margin="8px"
-            variant={filter === category.name ? "solid" : "outlined"}
+            variant={filter === category.name ? "solid" : "outline"}
             onClick={() => handleOnClickFilter(category.name)}
           >
             {category.name}
           </Button>
         ))}
-      </Flex>
+      </Box>
 
       <Badge
         colorScheme="red"
         badgeContent={totalCartItem}
         anchorOrigin={{ horizontal: "left", vertical: "top" }}
-      ></Badge>
+      />
       <Grid flexDirection="column" width="100%">
         {categories
           .filter((category) => !filter || (filter && category.name === filter))
