@@ -59,21 +59,45 @@ export default function CheckOut() {
   }
 
   return (
-    <VStack>
-      <Flex>
-        <Image />
-        <Text> Stoke House Burgers</Text>
+    <VStack
+      width="100%"
+      display="flex"
+      justifyContent="center"
+      flexDirection="column"
+      alignItems="center"
+    >
+      <Flex justifyContent="center" flexDirection="column">
+        <Image src="Images/logo.jpg" boxSize="300px" objectFit="fill" />
+        <Text s="samp" fontSize="5xl" fontWeight="bolder">
+          Stoke House Burgers
+        </Text>
       </Flex>
-      <FormControl onSubmit={handleOnSubmit}>
-        <Box>
-          <Text>Tu pedido</Text>
+      <FormControl
+        onSubmit={handleOnSubmit}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box
+          display="flex"
+          justifyContent="center"
+          overflow="scroll"
+          width="100%"
+          height="100%"
+          maxHeight="500px"
+          maxWidth="700px"
+        >
+          <Text as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+            Tu pedido
+          </Text>
           {cart.map((item) => (
             <OrderItem
               key={item.id}
               updateQuantity={updateItemQuantity}
               handleOnDelete={deleteItem}
               nameItem={item.nameItem}
-              id={item.id}
+              id={item.id as number}
               image={item.image}
               quantity={item.quantity}
               price={item.selectedSize.price}
@@ -83,7 +107,9 @@ export default function CheckOut() {
           ))}
         </Box>
         <Box>
-          <FormLabel>Tu nombre</FormLabel>
+          <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+            Tu nombre
+          </FormLabel>
           <Input
             isRequired
             onChange={handleOnChangeOrder}
@@ -92,7 +118,9 @@ export default function CheckOut() {
           />
         </Box>
         <Box>
-          <FormLabel>Direccion de entrega</FormLabel>
+          <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+            Direccion de entrega
+          </FormLabel>
           <Input
             isRequired
             onChange={handleOnChangeOrder}
@@ -101,7 +129,9 @@ export default function CheckOut() {
           />
         </Box>
         <Box>
-          <FormLabel>Abona con...</FormLabel>
+          <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+            Abona con...
+          </FormLabel>
           <Input
             isRequired
             onChange={handleOnChangeOrder}
@@ -110,11 +140,24 @@ export default function CheckOut() {
           />
         </Box>
         <Box>
-          <FormLabel>Comentarios</FormLabel>
+          <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+            Comentarios
+          </FormLabel>
           <Input onChange={handleOnChangeOrder} id="comments" name="comments" />
         </Box>
-        <Box>
-          <Text>Finalizar tu pedido</Text>
+        <Box
+          maxW="sm"
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Text as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+            Finalizar tu pedido
+          </Text>
           <Text>
             Total: $
             {cart.reduce((subTotal, cart) => {
@@ -124,7 +167,9 @@ export default function CheckOut() {
           </Text>
           <Text>*el precio es sin costo de envio</Text>
         </Box>
-        <Button type="submit">Enviar pedido por WhatsApp</Button>
+        <Button margin="5px" colorScheme="teal" size="md" type="submit">
+          Enviar pedido por WhatsApp
+        </Button>
       </FormControl>
     </VStack>
   );
