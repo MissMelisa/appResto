@@ -52,7 +52,7 @@ export default function Cart({ open, setOpen, handleOnDelete }: CartData) {
             <Flex flexDirection="column" width="100%">
               {cart.map((item) => (
                 <OrderItem
-                  id={item.id}
+                  id={item.id as number}
                   updateQuantity={updateItemQuantity}
                   handleOnDelete={handleOnDelete}
                   nameItem={item.nameItem}

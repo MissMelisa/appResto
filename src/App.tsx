@@ -4,6 +4,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import CartProvider from "./components/Context";
+import CheckOut from "./pages/CheckOut";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -16,9 +17,9 @@ export const App = () => (
               <Route path="/" exact>
                 <Home />
               </Route>
-              {/* <Route path="/checkout">
-            <CheckOutPage />
-          </Route> */}
+              <Route path="/checkout">
+                <CheckOut />
+              </Route>
             </Switch>
           </CartProvider>
         </Router>
