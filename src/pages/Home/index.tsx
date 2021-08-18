@@ -24,7 +24,7 @@ const initialStateOpen = {
 };
 
 export default function Home() {
-  const { cart, addNewItem, deleteItem, totalCartItem } = useCart();
+  const { addNewItem, deleteItem, totalCartItem } = useCart();
   const [open, setOpen] = useState<openType>(initialStateOpen);
   const [filter, setFilter] = useState<string>();
   const [detail, setDetail] = useState<FoodData>();

@@ -54,7 +54,7 @@ export default function CardItemModal({
   const [error, setError] = useState<boolean>(false);
   const [excludedIngredients, setExcludedIngredients] = useState<string[]>([]);
   const [selectedSize, setSelectedSize] = useState<Size>(objectSizes[0]);
-  const [quantity, setQuantity] = useState<number>(1);
+  const [quantity] = useState<number>(1);
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptionType>(
     {}
   );
