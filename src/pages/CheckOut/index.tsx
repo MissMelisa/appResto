@@ -66,7 +66,7 @@ export default function CheckOut() {
       flexDirection="column"
       alignItems="center"
     >
-      <Flex justifyContent="center" flexDirection="column">
+      <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <Image src="Images/logo.jpg" boxSize="300px" objectFit="fill" />
         <Text s="samp" fontSize="5xl" fontWeight="bolder">
           Stoke House Burgers
@@ -78,7 +78,12 @@ export default function CheckOut() {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
+        width="100%"
+        maxWidth="500px"
       >
+        <Text as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
+          Tu pedido
+        </Text>
         <Box
           display="flex"
           justifyContent="center"
@@ -87,10 +92,10 @@ export default function CheckOut() {
           height="100%"
           maxHeight="500px"
           maxWidth="700px"
+          margin="25px"
+          borderWidth="1px"
+          borderRadius="lg"
         >
-          <Text as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
-            Tu pedido
-          </Text>
           {cart.map((item) => (
             <OrderItem
               key={item.id}
@@ -106,7 +111,12 @@ export default function CheckOut() {
             />
           ))}
         </Box>
-        <Box>
+        <Flex
+          width="100%"
+          alignItems="center"
+          flexDirection="column"
+          marginTop="10px"
+        >
           <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
             Tu nombre
           </FormLabel>
@@ -116,8 +126,8 @@ export default function CheckOut() {
             id="name"
             name="name"
           />
-        </Box>
-        <Box>
+        </Flex>
+        <Flex width="100%" alignItems="center" flexDirection="column">
           <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
             Direccion de entrega
           </FormLabel>
@@ -127,8 +137,8 @@ export default function CheckOut() {
             id="address"
             name="address"
           />
-        </Box>
-        <Box>
+        </Flex>
+        <Flex width="100%" alignItems="center" flexDirection="column">
           <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
             Abona con...
           </FormLabel>
@@ -138,15 +148,24 @@ export default function CheckOut() {
             id="cash"
             name="cash"
           />
-        </Box>
-        <Box>
+        </Flex>
+        <Flex width="100%" alignItems="center" flexDirection="column">
           <FormLabel as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
             Comentarios
           </FormLabel>
           <Input onChange={handleOnChangeOrder} id="comments" name="comments" />
-        </Box>
+        </Flex>{" "}
+        <Text
+          as="samp"
+          fontSize="xl"
+          margin="5px"
+          fontWeight="bolder"
+          padding="5px"
+        >
+          Finalizar tu pedido
+        </Text>
         <Box
-          maxW="sm"
+          margin="20px"
           borderWidth="1px"
           borderRadius="lg"
           overflow="hidden"
@@ -154,18 +173,18 @@ export default function CheckOut() {
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
+          padding="15px"
         >
-          <Text as="samp" fontSize="xl" fontWeight="bolder" padding="5px">
-            Finalizar tu pedido
-          </Text>
-          <Text>
+          <Text as="i" fontWeight="bold" fontSize="4xl">
             Total: $
             {cart.reduce((subTotal, cart) => {
               subTotal = subTotal + cart.quantity * cart.selectedSize.price;
               return subTotal;
             }, 0)}
           </Text>
-          <Text>*el precio es sin costo de envio</Text>
+          <Text as="i" fontSize="sm" color="red">
+            *el precio es sin costo de envio
+          </Text>
         </Box>
         <Button margin="5px" colorScheme="teal" size="md" type="submit">
           Enviar pedido por WhatsApp

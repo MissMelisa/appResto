@@ -48,7 +48,7 @@ export default function Home() {
     handleSetOpen("openCartItem");
     setDetail(item);
   }
-  console.log(categories);
+
   return (
     <VStack width="100%" display="flex" justifyContent="center">
       <Button onClick={() => handleSetOpen("openCart")}>Mi orden</Button>
